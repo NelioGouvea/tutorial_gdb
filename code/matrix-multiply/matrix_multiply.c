@@ -32,7 +32,7 @@
 #include <math.h>
 #include <string.h>
 
-//#include <assert.h>
+#include <assert.h>
 
 // Allocates a row-by-cols matrix and returns it
 matrix* make_matrix(int rows, int cols) {
@@ -62,6 +62,7 @@ void free_matrix(matrix* m) {
 
 // Print matrix
 void print_matrix(const matrix* m) {
+
   printf("------------\n");
   for (int i = 0; i < m->rows; i++) {
     for (int j = 0; j < m->cols; j++) {
@@ -75,12 +76,15 @@ void print_matrix(const matrix* m) {
 
 // Multiply matrix A*B, store result in C.
 int matrix_multiply_run(const matrix* A, const matrix* B, matrix* C) {
+
+  A = malloc(sizeof(matrix));
+  B = malloc(sizeof(matrix));
+  C = malloc(sizeof(matrix));
   
-  /*
   assert(A->cols == B->rows);
   assert(A->rows == C->rows);
   assert(B->cols == C->cols);
-  */
+  
   
   for (int i = 0; i < A->rows; i++) {
     for (int j = 0; j < B->cols; j++) {
